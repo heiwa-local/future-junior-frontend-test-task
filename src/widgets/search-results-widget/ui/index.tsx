@@ -25,6 +25,10 @@ export const SearchResultsWidget: React.FC<Props> = (props) => {
         )
     }
 
+    const handleBookCardClick = (id?: string) => {
+        navigate(`/books/${id}`)
+    }
+
     return (
         <div className={cn(props.classname, styles.searchResultsWidget)}>
             <div className={styles.searchResultsWidget__booksGrid}>
@@ -35,9 +39,7 @@ export const SearchResultsWidget: React.FC<Props> = (props) => {
                         title={it.title}
                         authors={it.authors}
                         tag={it.subjects?.at(0)}
-                        onClick={() => {
-                            navigate(`/books/${it.id}`)
-                        }}/>
+                        onClick={() => handleBookCardClick(it.id)}/>
                 ))}
             </div>
             <Button

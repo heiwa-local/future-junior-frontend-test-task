@@ -25,15 +25,12 @@ export const bookDetailPageSlice = createSlice({
         builder.addCase(fetchBookById.pending, (state, action) => {
             state.isLoading = true
             state.book = undefined
-            console.log("Loading")
         })
 
         builder.addCase(fetchBookById.fulfilled, (state, action) => {
             let payload = action.payload
-            console.log(payload)
 
             if (typeof payload.response === "string") {
-                console.log("error")
             } else {
                 let data = payload as BookGoogleApiDto<BookDto>
 

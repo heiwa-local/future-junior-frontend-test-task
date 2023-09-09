@@ -18,7 +18,6 @@ export const SearchWidget: React.FC<Props> = (props) => {
     const [selectedOrder, setSelectedOrder] = useState<Sorts>(Sorts.relevance)
 
     const onSearch = (orderBy: Sorts, keywords?: string) => {
-        console.log("23", selectedSubject)
         if (!!keywords) {
             dispatch(
                 fetchBooksByKeywords({

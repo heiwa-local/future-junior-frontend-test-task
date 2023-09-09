@@ -34,21 +34,17 @@ export const searchPageSlice = createSlice({
 
         builder.addCase(fetchBooksByKeywords.pending, (state, action) => {
             state.isLoading = true
-            console.log("Loading")
         })
 
         builder.addCase(fetchBooksByKeywords.fulfilled, (state, action) => {
             let payload = action.payload
-            console.log(payload)
 
             if (typeof payload.response === "string") {
-                console.log("error")
             } else {
                 let data = payload as BooksGoogleApiDto<BookDto[]>
 
                 switch(data.params.type) {
                     case FetchTypes.search: {
-                        console.log("aaaa", data)
                         const books = data.response.items?.map(it => bookDtoMapper(it))
                         state.books = !!books ? books : []
                         state.totalItems = data.response.totalItems
@@ -59,7 +55,6 @@ export const searchPageSlice = createSlice({
                         break
                     }
                     case FetchTypes.loadMore: {
-                        console.log("aaaa", data)
                         const books = data.response.items?.map(it => bookDtoMapper(it))
                         state.books = !!books ? [...state.books,...books] : state.books
 

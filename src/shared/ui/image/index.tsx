@@ -22,7 +22,6 @@ export const Image: React.FC<Props> = (props) => {
 
     useEffect(() => {
         setTimeout(() => {
-            console.log(ref.current)
             if (!!ref.current) {
                 setError(false)
             } else {
