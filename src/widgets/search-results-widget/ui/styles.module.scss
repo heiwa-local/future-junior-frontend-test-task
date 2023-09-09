@@ -1,0 +1,19 @@
+.searchResultsWidget {
+    
+    display: grid;
+    padding: 2rem;
+    row-gap: 2rem;
+
+    margin: auto;
+
+    &__booksGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+
+    &__loadMoreButton {
+        margin: 0 auto;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,74 @@
+.searchLine {
+    display: grid;
+    border-bottom: 2px solid #303030;
+    grid-template-columns: 1fr auto;
+    column-gap: 1rem;
+    padding-bottom: 0.5rem;
+    transition: 0.25s;
+
+    &:focus-within {
+        border-bottom: 2px solid #21AE84;
+    }
+
+    &__input {
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 1.5rem;
+        color: #303030;
+    }
+
+    &__button {
+        background: transparent;
+        border: 0;
+        transition: 0.5s;
+        color: #303030;
+
+
+        &:hover {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.button {
+    &__icon {
+        margin: auto;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .button {
+        &__icon {
+            margin: auto;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .button {
+        &__icon {
+            margin: auto;
+            width: 8px;
+            height: 8px;
+            cursor: pointer;
+        }
+    }
+  }
+  
+  @media screen and (max-width: 425px) {
+    .button {
+        &__icon {
+            margin: auto;
+            width: 4px;
+            height: 4px;
+            cursor: pointer;
+        }
+    }
+  }

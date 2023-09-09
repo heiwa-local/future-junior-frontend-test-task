@@ -1,0 +1,39 @@
+.bookDetailPage {
+    position: relative;
+    display: grid;
+    margin: 0 auto;
+    max-width: 1440px;
+
+    &__header {
+        position: fixed;
+        background: #F8F8F8;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+    }
+
+    &__btnNavBack {
+        margin: 10rem 2rem 1rem 2rem;
+        width: fit-content;
+        font-weight: bold;
+    }
+
+    &__loadingProgress {
+        position: fixed;
+        color: #21AE84;
+        left: 50%;
+        transform: translate(-50%, 0);
+        top: 4rem;
+    }
+}
+
+.btnNavBack {
+    &__content {
+        display: flex;
+        column-gap: 1rem;
+    }
+    &__icon {
+        color: white;
+        height: 1.5rem;
+    }
+}

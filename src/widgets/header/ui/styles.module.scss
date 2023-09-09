@@ -1,0 +1,16 @@
+.header {
+    &__inner {
+        padding: 2rem;
+        display: grid;
+    }
+    &__logo {
+        position: relative;
+        cursor: pointer;
+
+        height: 5rem;
+        
+        &:active {
+            top: 0.25rem;
+        }
+    }
+}

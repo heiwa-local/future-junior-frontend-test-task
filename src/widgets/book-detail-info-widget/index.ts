@@ -1,0 +1,1 @@
+export { BookDetailInfoWidget } from "./ui"

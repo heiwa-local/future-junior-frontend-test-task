@@ -1,0 +1,48 @@
+.bookDetailInfoWidget {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 2rem;
+    column-gap: 2rem;
+
+    &__baseImage {
+        margin: auto;
+        display: flex;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    &__baseImageWrap {
+        display: grid;
+    }
+
+    &__infoContainer {
+        display: grid;
+        height: fit-content;
+    }
+}
+.infoContainer {
+    &__title {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+        color: #303030;
+    }
+
+    &__authors {
+        font-size: 1.5rem;
+        color: #303030;
+    }
+
+    &__subjects {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #303030;
+    }
+
+    &__description {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-top: 2rem;
+        color: #303030;
+        text-align: justify;
+    }
+}

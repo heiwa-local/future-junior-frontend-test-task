@@ -1,0 +1,24 @@
+.button {
+    display: grid;
+    padding: 1rem 2rem;
+
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    transition: 0.25s;
+    cursor: pointer;
+
+    background: #303030;
+    color: white;
+
+    &:hover {
+        background: rgba( 33, 174, 132, 1 );
+        color: white;
+    }
+
+    &:active {
+        position: relative;
+        top: 0.25rem;
+    }
+}

@@ -1,0 +1,94 @@
+.searchWidget {
+    display: grid;
+
+    &__inner {
+        display: grid;
+        padding: 2rem;
+        height: fit-content;
+        margin: auto 0;
+    }
+
+    &__title {
+        margin: 0 auto;
+        color: #303030;
+        font-size: 2.5rem;
+    }
+
+    &__searchLine {
+        margin: 2rem auto 0 auto;
+        width: 80%;
+    }
+
+    &__paramsContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+        width: 80%;
+        margin: 1rem auto 0 auto;
+    }
+
+    &__foundNumber {
+        display: none;
+
+        &_active {
+            animation: 1s showFound;
+            display: grid;
+            font-size: 1.5rem;
+            color: #303030;
+            font-weight: bold;
+            margin: 2rem auto 0 auto;
+        }
+    }
+}
+
+.paramsContainer {
+    &__orderByContainer {
+        display: grid;
+        grid-template-columns: auto auto;
+        width: fit-content;
+        margin: auto;
+        column-gap: 0.5rem;
+    }
+
+    &__categoriesContainer {
+        display: grid;
+        grid-template-columns: auto auto;
+        width: fit-content;
+        margin: auto;
+        column-gap: 0.5rem;
+    }
+}
+
+.orderByContainer {
+    &__title {
+        color: #303030;
+        font-size: 1.25rem;
+    }
+
+    &__select {
+        color: #303030;
+        font-size: 1.25rem;
+    }
+}
+
+.categoriesContainer {
+    &__title {
+        color: #303030;
+        font-size: 1.25rem;
+    }
+
+    &__select {
+        color: #303030;
+        font-size: 1.25rem;
+    }
+}
+
+@keyframes showFound {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
