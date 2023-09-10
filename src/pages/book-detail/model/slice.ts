@@ -7,11 +7,13 @@ import { fetchBookById } from "../../../shared/api/google-books/fetch-book-by-id
 
 type BookDetailPageState = {
     isLoading: boolean
+    errorMessage?: string
     book?: BookModel
 }
 
 const initialState: BookDetailPageState = {
     isLoading: false,
+    errorMessage: undefined,
     book: undefined
 }
 
@@ -24,13 +26,16 @@ export const bookDetailPageSlice = createSlice({
 
         builder.addCase(fetchBookById.pending, (state, action) => {
             state.isLoading = true
+            state.errorMessage = undefined
             state.book = undefined
         })
 
         builder.addCase(fetchBookById.fulfilled, (state, action) => {
             let payload = action.payload
 
-            if (typeof payload.response === "string") {
+            if (!!payload.response["error"]) {
+                state.errorMessage = payload.response["error"]["message"]
+                state.isLoading = false
             } else {
                 let data = payload as BookGoogleApiDto<BookDto>
 

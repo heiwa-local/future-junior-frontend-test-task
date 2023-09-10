@@ -3,7 +3,7 @@ import styles from "./styles.module.scss"
 import { AngelLeftIcon, Button, useAppDispath, useBookDetailPageState, fetchBookById } from "../../../shared"
 import { useEffect } from "react"
 import { Header, BookDetailInfoWidget } from "../../../widgets"
-import { CircularProgress } from "@mui/material"
+import { Alert, CircularProgress } from "@mui/material"
 
 export const BookDetailPage = () => {
     const { bookId } = useParams()
@@ -31,6 +31,13 @@ export const BookDetailPage = () => {
             <BookDetailInfoWidget classname={styles.bookDetailPage__bookDetailInfoWidget}/>
             {state.isLoading ? (
                 <CircularProgress className={styles.bookDetailPage__loadingProgress}/>
+            ) : <></>}
+            {!!state.errorMessage ? (
+                <Alert
+                    className={styles.bookDetailPage__errorAlert}
+                    severity="error">
+                        {state.errorMessage}
+                </Alert>
             ) : <></>}
         </div>
     )

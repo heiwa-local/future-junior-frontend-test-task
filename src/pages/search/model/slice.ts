@@ -5,6 +5,7 @@ import { BooksGoogleApiDto, FetchTypes, Sorts, fetchBooksByKeywords, navigateHom
 
 type SearchPageState = {
     isLoading: boolean
+    errorMessage?: string
     isFirstOpen: boolean
     books: BookModel[],
     totalItems?: number
@@ -16,6 +17,7 @@ type SearchPageState = {
 
 const initialState: SearchPageState = {
     isLoading: false,
+    errorMessage: undefined,
     isFirstOpen: true,
     books: [],
     totalItems: undefined,
@@ -34,12 +36,15 @@ export const searchPageSlice = createSlice({
 
         builder.addCase(fetchBooksByKeywords.pending, (state, action) => {
             state.isLoading = true
+            state.errorMessage = undefined
         })
 
         builder.addCase(fetchBooksByKeywords.fulfilled, (state, action) => {
             let payload = action.payload
 
-            if (typeof payload.response === "string") {
+            if (!!payload.response["error"]) {
+                state.errorMessage = payload.response["error"]["message"]
+                state.isLoading = false
             } else {
                 let data = payload as BooksGoogleApiDto<BookDto[]>
 
